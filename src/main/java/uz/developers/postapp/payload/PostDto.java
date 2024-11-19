@@ -21,7 +21,6 @@ public class PostDto {
     private Long id;
 
     @NotNull
-    @Size(max = 100, message = "Title must be less than or equal to 100 characters")
     @Schema(description = "Title of the blog post",
             example = "Dependency Injection in Spring")
     private String title;
@@ -31,22 +30,19 @@ public class PostDto {
             example = "In this post, we will explore the concept of Dependency Injection...")
     private String content;
 
+    @Schema(description = "Image associated with the blog post",
+            example = "http://example.com/image.jpg")
+    private String image;
 
     @Schema(description = "Date when the post was created",
             example = "2024-01-01")
     private Date date;
 
-    @Schema(description = "Image associated with the blog post",
-            example = "http://example.com/image.jpg")
-    private String image;
-
     @Schema(description = "Category ID for the post",
-            example = "3",
-            required = true)
+            example = "3")
     private Long categoryId;
 
     @Schema(description = "User ID for the post",
-            example = "7",
-            required = true)
+            example = "7")
     private Long userId;
 }

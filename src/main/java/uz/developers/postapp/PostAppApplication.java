@@ -8,6 +8,12 @@ public class PostAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PostAppApplication.class, args);
-	}
 
+		// for swagger documentation
+		// http://localhost:8080/swagger-ui/index.html
+
+		// my portfolio
+		// https://nizomiddin-portfolio.netlify.app/
+
+	}
 }

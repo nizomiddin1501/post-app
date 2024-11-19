@@ -22,20 +22,20 @@ public class Post {
             example = "1")
     private Long id;
 
-    @Column(name = "post_title", length = 100,nullable = false)
+    @Column(name = "title", length = 100,nullable = false)
     @Schema(description = "Title of the blog post",
             example = "Understanding Dependency Injection in Spring",
             required = true)
     private String title;
 
-    @Column(name = "content", length = 1000, nullable = false)
+    @Column(name = "content", nullable = false)
     @Schema(description = "Content of the blog post",
             example = "In this post, we will explore the concept of Dependency Injection...",
             required = true)
     private String content;
 
 
-    @Column(name = "image", length = 255)
+    @Column(name = "image")
     @Schema(description = "Image associated with the blog post",
             example = "http://example.com/image.jpg")
     private String image;
@@ -59,9 +59,4 @@ public class Post {
             example = "User ID: 3",
             required = true)
     private User user;
-
-
-
-
-
 }

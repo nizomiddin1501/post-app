@@ -22,9 +22,7 @@ import uz.developers.postapp.service.PostService;
 @RequestMapping("/api/posts")
 public class PostController {
 
-
     private final PostService postService;
-
 
     /**
      * Retrieves all posts for a specific category.
@@ -47,8 +45,6 @@ public class PostController {
                 postDtos), HttpStatus.OK);
     }
 
-
-
     /**
      * Retrieves all posts for a specific user.
      * If no posts are found, a ResourceNotFoundException is thrown.
@@ -69,8 +65,6 @@ public class PostController {
                 true,
                 postDtos), HttpStatus.OK);
     }
-
-
 
     /**
      * Searches for posts by title or content using a keyword.
@@ -93,11 +87,6 @@ public class PostController {
                 postDtos), HttpStatus.OK);
     }
 
-
-
-
-
-
     /**
      * Retrieve a paginated list of posts.
      *
@@ -117,7 +106,6 @@ public class PostController {
                 true,
                 postDtos), HttpStatus.OK);
     }
-
 
     /**
      * Retrieve a post by their unique ID using the provided PostDto.
@@ -139,7 +127,6 @@ public class PostController {
                 postDto), HttpStatus.OK);
     }
 
-
     /**
      * Creates a new post.
      *
@@ -156,7 +143,6 @@ public class PostController {
                 true,
                 savedPost), HttpStatus.CREATED);
     }
-
 
     /**
      * Update the details of an existing post using the provided PostDto.
@@ -179,7 +165,6 @@ public class PostController {
                 updatedPost), HttpStatus.OK);
     }
 
-
     /**
      * Delete a post by their ID.
      *
@@ -197,5 +182,4 @@ public class PostController {
                 true,
                 null), HttpStatus.NO_CONTENT);
     }
-
 }

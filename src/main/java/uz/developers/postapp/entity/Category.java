@@ -20,16 +20,14 @@ public class Category {
             example = "1")
     private Long id;
 
-    @Column(name = "name", length = 20,nullable = false)
+    @Column(name = "title", nullable = false)
     @Schema(description = "Title of the Category. This represents the name or label that describes the category.",
             example = "Technology")
     private String title;
 
-    @Column(name = "description", length = 40,nullable = false)
+    @Column(name = "description")
     @Schema(description = "A brief description of the Category. This provides additional context or details about what the category includes.",
             example = "Posts related to technological advancements, gadgets, and innovations")
     private String description;
-
-
 
 }

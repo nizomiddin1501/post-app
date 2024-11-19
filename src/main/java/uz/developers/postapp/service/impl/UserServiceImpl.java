@@ -11,20 +11,16 @@ import uz.developers.postapp.exceptions.UserException;
 import uz.developers.postapp.payload.UserDto;
 import uz.developers.postapp.repository.UserRepository;
 import uz.developers.postapp.service.UserService;
-
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import static java.util.regex.Pattern.matches;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-
     private final ModelMapper modelMapper;
-
     private final UserRepository userRepository;
-
 
     @Override
     public Page<UserDto> getAllUsers(int page, int size) {
@@ -38,7 +34,18 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("User", " Id ", userId));
         return Optional.of(userToDto(user));
     }
+    // Login
+    @Override
+    public UserDto loginUser(String email, String password) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserException("User not found with this email"));
+        if (!matches(password, user.getPassword())) {
+            throw new UserException("Invalid credentials");
+        }
+        return userToDto(user);
+    }
 
+    // Register
     @Override
     public UserDto createUser(UserDto userDto) {
         User user = dtoToUser(userDto);
@@ -65,14 +72,12 @@ public class UserServiceImpl implements UserService {
         return userToDto(updatedUser);
     }
 
-
     @Override
     public void deleteUser(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", " Id ", userId));
         userRepository.delete(user);
     }
-
 
     // DTO ---> Entity
     private User dtoToUser(UserDto userDto) {

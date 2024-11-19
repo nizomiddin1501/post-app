@@ -17,14 +17,10 @@ public class CategoryDto {
             example = "1")
     private Long id;
 
-    @NotNull
-    @Size(max = 20, message = "Title must be less than or equal to 20 characters")
     @Schema(description = "Title of the Category.",
             example = "Technology")
     private String title;
 
-    @NotNull
-    @Size(max = 40, message = "Description must be less than or equal to 40 characters")
     @Schema(description = "A brief description of the Category.",
             example = "Posts related to technological advancements...")
     private String description;

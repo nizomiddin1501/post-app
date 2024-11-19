@@ -20,7 +20,7 @@ public class Comment {
             example = "1")
     private Long id;
 
-    @Column(name = "user_name", length = 20,nullable = false)
+    @Column(name = "content", nullable = false)
     @Schema(description = "Content of the comment made by the user.",
             example = "This is a great post! I learned a lot from it.")
     private String content;

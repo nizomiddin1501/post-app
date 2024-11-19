@@ -24,10 +24,7 @@ import uz.developers.postapp.service.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
-
     private final UserService userService;
-
-
 
     /**
      * Retrieve a paginated list of users.

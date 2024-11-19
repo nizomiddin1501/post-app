@@ -12,9 +12,15 @@ public interface CategoryRepository extends BaseRepository<Category, Long> {
 
 
     // Title exists check
-    @Query(value = "select count(*) > 0 from category c where c.content = :title", nativeQuery = true)
+    @Query(value = "select count(*) > 0 from category c where c.title = :title", nativeQuery = true)
     boolean existsByTitle(@Param("title") String title);
 
 
-    Page<Post> findByCategoryId(Long categoryId, Pageable pageable);
+    //Page<Post> findByCategoryId(Long categoryId, Pageable pageable);
+
+    //
+    //Query to get posts by category ID
+    @Query(value = "select * from posts p where p.category_id = :categoryId", nativeQuery = true)
+    Page<Post> findByCategoryId(@Param("categoryId") Long categoryId, Pageable pageable);
+
 }

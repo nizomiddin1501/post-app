@@ -10,7 +10,9 @@ import uz.developers.postapp.entity.Post;
 import uz.developers.postapp.exceptions.PostException;
 import uz.developers.postapp.exceptions.ResourceNotFoundException;
 import uz.developers.postapp.payload.PostDto;
+import uz.developers.postapp.repository.CategoryRepository;
 import uz.developers.postapp.repository.PostRepository;
+import uz.developers.postapp.repository.UserRepository;
 import uz.developers.postapp.service.PostService;
 import java.util.Optional;
 
@@ -19,15 +21,14 @@ import java.util.Optional;
 public class PostServiceImpl implements PostService {
 
     private final ModelMapper modelMapper;
-
     private final PostRepository postRepository;
-
+    private final CategoryRepository categoryRepository;
 
     //get all posts by category
     @Override
     public Page<PostDto> getPostsByCategory(Long categoryId, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Post> postsPage = postRepository.findByCategoryId(categoryId, pageable);
+        Page<Post> postsPage = categoryRepository.findByCategoryId(categoryId, pageable);
         if (postsPage.isEmpty()) {
             throw new ResourceNotFoundException("Posts", "Category ID", categoryId);
         }
@@ -56,9 +57,6 @@ public class PostServiceImpl implements PostService {
         }
         return postsPage.map(this::postToDto);
     }
-
-
-
 
     @Override
     public Page<PostDto> getAllPosts(int page, int size) {
@@ -109,25 +107,12 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(post);
     }
 
-
-
-
-
     // DTO ---> Entity
     private Post dtoToPost(PostDto postDto){
         return modelMapper.map(postDto, Post.class);
     }
-
-
     // Entity ---> DTO
     public PostDto postToDto(Post post){
         return modelMapper.map(post, PostDto.class);
     }
-
-
-
-
-
-
-
 }

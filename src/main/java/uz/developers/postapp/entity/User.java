@@ -20,30 +20,21 @@ public class User {
             example = "1")
     private Long id;
 
-    @Column(name = "user_name", length = 20,nullable = false)
+    @Column(name = "name", nullable = false)
     @Schema(description = "Name of the user",
             example = "Nizomiddin Mirzanazarov",
             required = true)
     private String name;
 
-    @Column(name = "user_email", length = 30, nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     @Schema(description = "Email address of the user",
             example = "nizomiddin@example.com",
             required = true)
     private String email;
 
-    @Column(name = "user_password", length = 50, nullable = false)
+    @Column(name = "password", nullable = false)
     @Schema(description = "Password of the user",
             example = "password123",
             required = true)
     private String password;
-
-
-
-
-
-
-
-
-
 }

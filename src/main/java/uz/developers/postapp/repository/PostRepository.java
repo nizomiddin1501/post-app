@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import uz.developers.postapp.entity.Category;
 import uz.developers.postapp.entity.Post;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface PostRepository extends BaseRepository<Post,Long> {
 
 
     // Title exists check
-    @Query(value = "select count(*) > 0 from posts p where p.post_title = :title", nativeQuery = true)
+    @Query(value = "select count(*) > 0 from posts p where p.title = :title", nativeQuery = true)
     boolean existsByTitle(@Param("title") String title);
 
 
@@ -23,15 +24,16 @@ public interface PostRepository extends BaseRepository<Post,Long> {
 
 
     // Check both column
-    @Query(value = "select count(*) > 0 from posts p where p.post_title = :title or p.content = :content", nativeQuery = true)
+    @Query(value = "select count(*) > 0 from posts p where p.title = :title or p.content = :content", nativeQuery = true)
     boolean existsByTitleOrContent(@Param("title") String title, @Param("content") String content);
 
 
 
-    ///
-    // Query to get posts by category ID
-    @Query(value = "select * from posts p where p.category_id = :categoryId", nativeQuery = true)
-    Page<Post> findByCategoryId(@Param("categoryId") Long categoryId, Pageable pageable);
+//    //
+//     //Query to get posts by category ID
+//    @Query(value = "select * from posts p where p.category_id = :categoryId", nativeQuery = true)
+//    Page<Post> findByCategoryId(@Param("categoryId") Long categoryId, Pageable pageable);
+
 
 
     // Query to get posts by user ID

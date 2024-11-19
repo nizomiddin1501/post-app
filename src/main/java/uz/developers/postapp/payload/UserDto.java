@@ -18,7 +18,7 @@ public class UserDto {
     private Long id;
 
     @NotNull
-    @Size(max = 20, message = "Name must be less than or equal to 20 characters")
+    //@Size(max = 20, message = "Name must be less than or equal to 20 characters")
     @Schema(description = "Name of the user",
             example = "Nizomiddin Mirzanazarov")
     private String name;
@@ -30,14 +30,8 @@ public class UserDto {
     private String email;
 
     @NotNull
-    @Size(min = 3, max = 10, message = "Password must be min of 3 chars and max of 10 chars !!")
+    //@Size(min = 3, max = 10, message = "Password must be min of 3 chars and max of 10 chars !!")
     @Schema(description = "Password of the user",
             example = "password123")
     private String password;
-
-    @Schema(description = "Brief description about the user",
-            example = "A passionate blogger and tech enthusiast.")
-    private String about;
-
-
 }
