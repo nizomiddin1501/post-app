@@ -68,6 +68,15 @@ public class UserController {
                 userDto), HttpStatus.OK);
     }
 
+    /**
+     * Authenticate a user with the provided email and password.
+     *
+     * @param loginRequest the login request containing email and password
+     * @return a ResponseEntity with a CustomApiResponse containing the UserDto on successful login
+     */
+    @Operation(summary = "User Login", description = "Authenticate a user using their email and password.")
+    @ApiResponse(responseCode = "200", description = "Login successful.")
+    @ApiResponse(responseCode = "401", description = "Invalid credentials or unauthorized access.")
     @PostMapping("/login")
     public ResponseEntity<CustomApiResponse<UserDto>> loginUser(@RequestBody LoginRequest loginRequest) {
         UserDto userDto = userService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
@@ -79,18 +88,18 @@ public class UserController {
 
 
     /**
-     * Creates a new user.
+     * Register new user.
      *
      * @param userDto the DTO containing the user information to be saved
      * @return a ResponseEntity containing a CustomApiResponse with the saved user data
      */
-    @Operation(summary = "Create a new User", description = "Create a new user record.")
-    @ApiResponse(responseCode = "201", description = "User created successfully.")
+    @Operation(summary = "Register a new User", description = "Register a new user record.")
+    @ApiResponse(responseCode = "201", description = "User registered successfully.")
     @PostMapping
-    public ResponseEntity<CustomApiResponse<UserDto>> createUser(@Valid @RequestBody UserDto userDto) {
+    public ResponseEntity<CustomApiResponse<UserDto>> registerUser(@Valid @RequestBody UserDto userDto) {
         UserDto savedUser = userService.createUser(userDto);
         return new ResponseEntity<>(new CustomApiResponse<>(
-                "User created successfully",
+                "User registered successfully",
                 true,
                 savedUser), HttpStatus.CREATED);
     }
