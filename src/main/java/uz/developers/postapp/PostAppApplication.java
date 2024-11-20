@@ -12,6 +12,17 @@ public class PostAppApplication {
 		// for swagger documentation
 		// http://localhost:8080/swagger-ui/index.html
 
+        //		Post CRUD application yaratish:
+        //		- user registration
+        //				- user authentication
+        //				- post create
+        //				- post edit
+        //				- post view
+        //				- post list
+        //				- post delete
+        //				- faqat post muallifi uz postini delete va update qila oladi
+        //				- faqat comment muallifi uz commentini delete va update qila oladi.
+
 		// my portfolio
 		// https://nizomiddin-portfolio.netlify.app/
 

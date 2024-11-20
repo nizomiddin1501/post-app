@@ -1,0 +1,3334 @@
+{
+	"info": {
+		"_postman_id": "efedc8f0-eb80-43b9-985e-811d91e434fe",
+		"name": "Post App API",
+		"description": "API documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15392187"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get User by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retrieve a user by their unique identifier."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved the user.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "User not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update user",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Update the details of an existing user."
+									},
+									"response": [
+										{
+											"name": "User updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "User not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete User",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Delete a user by its ID."
+									},
+									"response": [
+										{
+											"name": "User deleted successfully.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "User not found.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "login",
+							"item": [
+								{
+									"name": "login User",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"login"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all Users with Pagination",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users?page=0&size=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								},
+								"description": "Retrieve a paginated list of all users."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved the list of users.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users?page=0&size=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"email\": \"<string>\",\n        \"name\": \"<string>\",\n        \"password\": \"<string>\",\n        \"id\": \"<long>\"\n      },\n      {\n        \"email\": \"<string>\",\n        \"name\": \"<string>\",\n        \"password\": \"<string>\",\n        \"id\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<long>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								},
+								"description": "Create a new user record."
+							},
+							"response": [
+								{
+									"name": "User created successfully.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"id\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"password\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "posts",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get Post by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/posts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retrieve a post by their unique identifier."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved the post.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "Post not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update post",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/posts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Update the details of an existing post."
+									},
+									"response": [
+										{
+											"name": "Post updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "User not authorized to update the post",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "Post not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Post",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/posts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Delete a post by its ID."
+									},
+									"response": [
+										{
+											"name": "Post deleted successfully.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "User not authorized to delete the post",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "Post not found.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "{userId}",
+									"item": [
+										{
+											"name": "Get Posts by User with Pagination",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/user/:userId?page=0&size=10",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"user",
+														":userId"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "10"
+														}
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Retrieve a paginated list of posts by user ID."
+											},
+											"response": [
+												{
+													"name": "Successfully retrieved the list of posts by user.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"key": "Authorization",
+																"value": "Basic <credentials>",
+																"description": "Added as a part of security scheme: basic"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/posts/user/:userId?page=0&size=10",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"posts",
+																"user",
+																":userId"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "0"
+																},
+																{
+																	"key": "size",
+																	"value": "10"
+																}
+															],
+															"variable": [
+																{
+																	"key": "userId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      },\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "Search Posts with Pagination",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/posts/search?keyword=<string>&page=0&size=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts",
+												"search"
+											],
+											"query": [
+												{
+													"key": "keyword",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										},
+										"description": "Search posts by title or content with pagination."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved the list of posts based on the search keyword.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/search?keyword=<string>&page=0&size=10",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"search"
+													],
+													"query": [
+														{
+															"key": "keyword",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "10"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      },\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "category",
+							"item": [
+								{
+									"name": "{categoryId}",
+									"item": [
+										{
+											"name": "Get Posts by Category with Pagination",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/posts/category/:categoryId?page=0&size=10",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"posts",
+														"category",
+														":categoryId"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "10"
+														}
+													],
+													"variable": [
+														{
+															"key": "categoryId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Retrieve a paginated list of posts by category ID."
+											},
+											"response": [
+												{
+													"name": "Successfully retrieved the list of posts by category.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"key": "Authorization",
+																"value": "Basic <credentials>",
+																"description": "Added as a part of security scheme: basic"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/posts/category/:categoryId?page=0&size=10",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"posts",
+																"category",
+																":categoryId"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "0"
+																},
+																{
+																	"key": "size",
+																	"value": "10"
+																}
+															],
+															"variable": [
+																{
+																	"key": "categoryId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      },\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all Posts with Pagination",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/posts?page=0&size=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"posts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								},
+								"description": "Retrieve a paginated list of all posts."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved the list of posts.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/posts?page=0&size=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      },\n      {\n        \"content\": \"<string>\",\n        \"title\": \"<string>\",\n        \"id\": \"<long>\",\n        \"image\": \"<string>\",\n        \"date\": \"<dateTime>\",\n        \"categoryId\": \"<long>\",\n        \"userId\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new Post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/posts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"posts"
+									]
+								},
+								"description": "Create a new post record."
+							},
+							"response": [
+								{
+									"name": "Post created successfully.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content\": \"<string>\",\n  \"title\": \"<string>\",\n  \"id\": \"<long>\",\n  \"image\": \"<string>\",\n  \"date\": \"<dateTime>\",\n  \"categoryId\": \"<long>\",\n  \"userId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/posts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"posts"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"title\": \"<string>\",\n    \"id\": \"<long>\",\n    \"image\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"categoryId\": \"<long>\",\n    \"userId\": \"<long>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "comments",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get Comment by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retrieve a user by their unique identifier."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved the comment.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "Comment not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update comment",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Update the details of an existing user."
+									},
+									"response": [
+										{
+											"name": "Comment updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "User not authorized to update the comment",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+										},
+										{
+											"name": "Comment not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Comment",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/comments/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"comments",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Delete a comment by its ID."
+									},
+									"response": [
+										{
+											"name": "Comment deleted successfully.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "User not authorized to delete the comment",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "Comment not found.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "posts",
+							"item": [
+								{
+									"name": "{postId}",
+									"item": [
+										{
+											"name": "Get all Comments by Post ID",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/posts/:postId?page=0&size=10",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														"posts",
+														":postId"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "0"
+														},
+														{
+															"key": "size",
+															"value": "10"
+														}
+													],
+													"variable": [
+														{
+															"key": "postId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Retrieve a list of all comments for specific post."
+											},
+											"response": [
+												{
+													"name": "Successfully retrieved the list of comments for specific post.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"key": "Authorization",
+																"value": "Basic <credentials>",
+																"description": "Added as a part of security scheme: basic"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/comments/posts/:postId?page=0&size=10",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"comments",
+																"posts",
+																":postId"
+															],
+															"query": [
+																{
+																	"key": "page",
+																	"value": "0"
+																},
+																{
+																	"key": "size",
+																	"value": "10"
+																}
+															],
+															"variable": [
+																{
+																	"key": "postId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"content\": \"<string>\",\n        \"id\": \"<long>\",\n        \"userId\": \"<long>\",\n        \"postId\": \"<long>\"\n      },\n      {\n        \"content\": \"<string>\",\n        \"id\": \"<long>\",\n        \"userId\": \"<long>\",\n        \"postId\": \"<long>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+												}
+											]
+										},
+										{
+											"name": "Create a new Comment",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/comments/posts/:postId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"comments",
+														"posts",
+														":postId"
+													],
+													"variable": [
+														{
+															"key": "postId",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Create a new comment record for specific post."
+											},
+											"response": [
+												{
+													"name": "User created successfully.",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															},
+															{
+																"key": "Authorization",
+																"value": "Basic <credentials>",
+																"description": "Added as a part of security scheme: basic"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"content\": \"<string>\",\n  \"id\": \"<long>\",\n  \"userId\": \"<long>\",\n  \"postId\": \"<long>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/comments/posts/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"comments",
+																"posts",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "postId"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"content\": \"<string>\",\n    \"id\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"postId\": \"<long>\"\n  }\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get Category by ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Retrieve a category by their unique identifier."
+									},
+									"response": [
+										{
+											"name": "Successfully retrieved the category.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Category not found.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update category",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Update the details of an existing category."
+									},
+									"response": [
+										{
+											"name": "Category updated successfully",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Category not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Category",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/categories/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"categories",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Delete a room by its ID."
+									},
+									"response": [
+										{
+											"name": "Category deleted successfully.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										},
+										{
+											"name": "Category not found.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													},
+													{
+														"key": "Authorization",
+														"value": "Basic <credentials>",
+														"description": "Added as a part of security scheme: basic"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/categories/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"categories",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get all Categories with Pagination",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/categories?page=0&size=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								},
+								"description": "Retrieve a paginated list of all categories."
+							},
+							"response": [
+								{
+									"name": "Successfully retrieved the list of categories.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/categories?page=0&size=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"categories"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"totalPages\": \"<integer>\",\n    \"totalElements\": \"<long>\",\n    \"size\": \"<integer>\",\n    \"content\": [\n      {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      {\n        \"id\": \"<long>\",\n        \"title\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    ],\n    \"number\": \"<integer>\",\n    \"sort\": {\n      \"empty\": \"<boolean>\",\n      \"sorted\": \"<boolean>\",\n      \"unsorted\": \"<boolean>\"\n    },\n    \"first\": \"<boolean>\",\n    \"last\": \"<boolean>\",\n    \"numberOfElements\": \"<integer>\",\n    \"pageable\": {\n      \"offset\": \"<long>\",\n      \"sort\": {\n        \"empty\": \"<boolean>\",\n        \"sorted\": \"<boolean>\",\n        \"unsorted\": \"<boolean>\"\n      },\n      \"paged\": \"<boolean>\",\n      \"pageSize\": \"<integer>\",\n      \"pageNumber\": \"<integer>\",\n      \"unpaged\": \"<boolean>\"\n    },\n    \"empty\": \"<boolean>\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/categories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								},
+								"description": "Create a new category record."
+							},
+							"response": [
+								{
+									"name": "Category created successfully.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"key": "Authorization",
+												"value": "Basic <credentials>",
+												"description": "Added as a part of security scheme: basic"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/categories",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"categories"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {\n    \"id\": \"<long>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "post",
+					"item": [
+						{
+							"name": "downloads",
+							"item": [
+								{
+									"name": "pdf",
+									"item": [
+										{
+											"name": "{postId}",
+											"item": [
+												{
+													"name": "download PDF",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/post/downloads/pdf/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"post",
+																"downloads",
+																"pdf",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "postId",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Basic <credentials>",
+																		"description": "Added as a part of security scheme: basic"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/post/downloads/pdf/:postId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"post",
+																		"downloads",
+																		"pdf",
+																		":postId"
+																	],
+																	"variable": [
+																		{
+																			"key": "postId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "excel",
+									"item": [
+										{
+											"name": "{postId}",
+											"item": [
+												{
+													"name": "download Excel",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/post/downloads/excel/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"post",
+																"downloads",
+																"excel",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "postId",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Basic <credentials>",
+																		"description": "Added as a part of security scheme: basic"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/post/downloads/excel/:postId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"post",
+																		"downloads",
+																		"excel",
+																		":postId"
+																	],
+																	"variable": [
+																		{
+																			"key": "postId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "csv",
+									"item": [
+										{
+											"name": "{postId}",
+											"item": [
+												{
+													"name": "download CSV",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/post/downloads/csv/:postId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"post",
+																"downloads",
+																"csv",
+																":postId"
+															],
+															"variable": [
+																{
+																	"key": "postId",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	},
+																	{
+																		"key": "Authorization",
+																		"value": "Basic <credentials>",
+																		"description": "Added as a part of security scheme: basic"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/post/downloads/csv/:postId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"post",
+																		"downloads",
+																		"csv",
+																		":postId"
+																	],
+																	"variable": [
+																		{
+																			"key": "postId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"data\": {}\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
