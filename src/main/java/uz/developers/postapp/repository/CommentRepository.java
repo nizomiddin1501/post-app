@@ -9,7 +9,7 @@ public interface CommentRepository extends BaseRepository<Comment, Long> {
 
 
     // Content exists check
-    @Query(value = "select count(*) > 0 from comment c where c.post_title = :content", nativeQuery = true)
+    @Query(value = "select count(*) > 0 from comment c where c.content = :content", nativeQuery = true)
     boolean existsByContent(@Param("content") String content);
 
 

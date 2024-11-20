@@ -16,27 +16,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authInterceptor)
-                .addPathPatterns("/api/posts/**") // Faqat `posts` marshrutlari uchun
-                .excludePathPatterns("/api/users/**"); // Foydalanuvchilar uchun ochiq marshrutlar
+                .addPathPatterns("/api/posts/**", "/api/categories/**", "/api/comments/**", "/api/post/downloads")
+                .excludePathPatterns("/swagger-ui/**", "/v3/api-docs/**");
     }
-
-
-
-
-
-
-
-
-
-
-    //    private final GeneralInterceptor generalInterceptor;
-//
-//    private final CategoryInterceptor categoryInterceptor;
-//
-//
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(generalInterceptor).addPathPatterns("/api/users/**");
-//        registry.addInterceptor(categoryInterceptor).addPathPatterns("/api/categories/**");
-//    }
 }

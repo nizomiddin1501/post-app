@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Schema(description = "Data transfer object for Comment")
 public class CommentDto {
 
-
     @Schema(description = "Unique ID of the comment",
             example = "1")
     private Long id;

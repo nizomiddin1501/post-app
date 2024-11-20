@@ -2,12 +2,14 @@ package uz.developers.postapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.developers.postapp.entity.User;
 import uz.developers.postapp.exceptions.CommentException;
 import uz.developers.postapp.payload.CommentDto;
 import uz.developers.postapp.payload.CustomApiResponse;
@@ -93,6 +95,7 @@ public class CommentController {
 
     /**
      * Update the details of an existing comment using the provided UserDto.
+     * Requires authentication and verifies user's authorization to update the comment.
      *
      * @param id         the ID of the comment to be updated
      * @param commentDto the DTO containing updated comment details
@@ -100,12 +103,15 @@ public class CommentController {
      */
     @Operation(summary = "Update comment", description = "Update the details of an existing user.")
     @ApiResponse(responseCode = "200", description = "Comment updated successfully")
+    @ApiResponse(responseCode = "403", description = "User not authorized to update the comment")
     @ApiResponse(responseCode = "404", description = "Comment not found")
     @PutMapping("/{id}")
     public ResponseEntity<CustomApiResponse<CommentDto>> updateComment(
             @PathVariable Long id,
-            @RequestBody CommentDto commentDto) {
-        CommentDto updatedComment = commentService.updateComment(id, commentDto);
+            @RequestBody CommentDto commentDto,
+            HttpServletRequest request) {
+        User authenticatedUser = (User) request.getAttribute("authenticatedUser");
+        CommentDto updatedComment = commentService.updateComment(id, commentDto, authenticatedUser.getId());
         return new ResponseEntity<>(new CustomApiResponse<>(
                 "Comment updated successfully",
                 true,
@@ -114,16 +120,21 @@ public class CommentController {
 
     /**
      * Delete a comment by their ID.
+     * Requires authentication and verifies user's authorization to delete the comment.
      *
      * @param id the ID of the comment to delete
      * @return a ResponseEntity containing a CustomApiResponse with the status of the operation
      */
     @Operation(summary = "Delete Comment", description = "Delete a comment by its ID.")
     @ApiResponse(responseCode = "204", description = "Comment deleted successfully.")
+    @ApiResponse(responseCode = "403", description = "User not authorized to delete the comment")
     @ApiResponse(responseCode = "404", description = "Comment not found.")
     @DeleteMapping("/{id}")
-    public ResponseEntity<CustomApiResponse<Void>> deleteComment(@PathVariable Long id) {
-        commentService.deleteComment(id);
+    public ResponseEntity<CustomApiResponse<Void>> deleteComment(
+            @PathVariable Long id,
+            HttpServletRequest request) {
+        User authenticatedUser = (User) request.getAttribute("authenticatedUser");
+        commentService.deleteComment(id, authenticatedUser.getId());
         return new ResponseEntity<>(new CustomApiResponse<>(
                 "Comment deleted successfully.",
                 true,

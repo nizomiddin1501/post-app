@@ -34,8 +34,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
     @Schema(description = "Blog post that this comment is related to.",
-            example = "Post ID: 5",
-            required = true)
+            example = "Post ID: 5")
     private Post post;
 
 }

@@ -2,7 +2,6 @@ package uz.developers.postapp.service;
 import org.springframework.data.domain.Page;
 import uz.developers.postapp.exceptions.ResourceNotFoundException;
 import uz.developers.postapp.payload.PostDto;
-import java.util.List;
 import java.util.Optional;
 
 public interface PostService {
@@ -26,9 +25,9 @@ public interface PostService {
 
     PostDto createPost(PostDto postDto);
 
-    PostDto updatePost(Long postId, PostDto postDto);
+    PostDto updatePost(Long postId, PostDto postDto, Long userId);
 
-    void deletePost(Long postId) throws ResourceNotFoundException;
+    void deletePost(Long postId, Long userId);
 
 
 

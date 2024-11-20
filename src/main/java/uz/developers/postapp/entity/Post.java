@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.sql.Date;
 
@@ -48,15 +50,15 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @Schema(description = "Category to which the post belongs",
-            example = "Category ID: 1",
-            required = true)
+            example = "Category ID: 1")
     private Category category;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @Schema(description = "User who created the post",
-            example = "User ID: 3",
-            required = true)
+            example = "User ID: 3")
     private User user;
 }

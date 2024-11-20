@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import uz.developers.postapp.exceptions.UserException;
 import uz.developers.postapp.payload.CustomApiResponse;
+import uz.developers.postapp.payload.LoginRequest;
 import uz.developers.postapp.payload.UserDto;
 import uz.developers.postapp.service.UserService;
 
@@ -63,6 +64,15 @@ public class UserController {
                 .orElseThrow(() -> new UserException("User not found"));
         return new ResponseEntity<>(new CustomApiResponse<>(
                 "Successfully retrieved the user.",
+                true,
+                userDto), HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<CustomApiResponse<UserDto>> loginUser(@RequestBody LoginRequest loginRequest) {
+        UserDto userDto = userService.loginUser(loginRequest.getEmail(), loginRequest.getPassword());
+        return new ResponseEntity<>(new CustomApiResponse<>(
+                "Login successful",
                 true,
                 userDto), HttpStatus.OK);
     }

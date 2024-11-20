@@ -9,6 +9,7 @@ import uz.developers.postapp.entity.Comment;
 import uz.developers.postapp.entity.Post;
 import uz.developers.postapp.exceptions.CommentException;
 import uz.developers.postapp.exceptions.ResourceNotFoundException;
+import uz.developers.postapp.exceptions.UserException;
 import uz.developers.postapp.payload.CommentDto;
 import uz.developers.postapp.repository.CommentRepository;
 import uz.developers.postapp.repository.PostRepository;
@@ -54,28 +55,36 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public CommentDto updateComment(Long id, CommentDto commentDto) {
-        Comment existingComment = commentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", id));
-        Comment commentDetails = dtoToComment(commentDto);
-        existingComment.setContent(commentDetails.getContent());
+    public CommentDto updateComment(Long commentId, CommentDto commentDto, Long userId) {
+        Comment existingComment = commentRepository.findById(commentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", commentId));
+
+        if (!existingComment.getUser().getId().equals(userId)) {
+            throw new UserException("You are not authorized to update this comment");
+        }
+        //Comment commentDetails = dtoToComment(commentDto);
+        existingComment.setContent(commentDto.getContent());
         Comment updatedComment = commentRepository.save(existingComment);
         return commentToDto(updatedComment);
     }
 
     @Override
-    public void deleteComment(Long id) {
-        Comment comment = commentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", id));
+    public void deleteComment(Long commentId, Long userId) {
+        Comment comment = commentRepository.findById(commentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comment", "id", commentId));
+
+        if (!comment.getUser().getId().equals(userId)) {
+            throw new UserException("You are not authorized to delete this comment");
+        }
         commentRepository.delete(comment);
     }
 
-    // DTO ---> Entity
+    // DTO to Entity
     private Comment dtoToComment(CommentDto commentDto){
         return modelMapper.map(commentDto, Comment.class);
     }
 
-    // Entity ---> DTO
+    // Entity to DTO
     public CommentDto commentToDto(Comment comment){
         return modelMapper.map(comment, CommentDto.class);
     }

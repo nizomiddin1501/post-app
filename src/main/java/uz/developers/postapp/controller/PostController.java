@@ -2,12 +2,14 @@ package uz.developers.postapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.developers.postapp.entity.User;
 import uz.developers.postapp.exceptions.PostException;
 import uz.developers.postapp.payload.CustomApiResponse;
 import uz.developers.postapp.payload.PostDto;
@@ -146,6 +148,7 @@ public class PostController {
 
     /**
      * Update the details of an existing post using the provided PostDto.
+     * Requires authentication and verifies user's authorization to update the post.
      *
      * @param id      the ID of the post to be updated
      * @param postDto the DTO containing updated post details
@@ -153,12 +156,15 @@ public class PostController {
      */
     @Operation(summary = "Update post", description = "Update the details of an existing post.")
     @ApiResponse(responseCode = "200", description = "Post updated successfully")
+    @ApiResponse(responseCode = "403", description = "User not authorized to update the post")
     @ApiResponse(responseCode = "404", description = "Post not found")
     @PutMapping("/{id}")
     public ResponseEntity<CustomApiResponse<PostDto>> updatePost(
             @PathVariable Long id,
-            @RequestBody PostDto postDto) {
-        PostDto updatedPost = postService.updatePost(id, postDto);
+            @RequestBody PostDto postDto,
+            HttpServletRequest request) {
+        User authenticatedUser = (User) request.getAttribute("authenticatedUser");
+        PostDto updatedPost = postService.updatePost(id, postDto,authenticatedUser.getId());
         return new ResponseEntity<>(new CustomApiResponse<>(
                 "Post updated successfully",
                 true,
@@ -167,16 +173,21 @@ public class PostController {
 
     /**
      * Delete a post by their ID.
+     * Requires authentication and verifies user's authorization to delete the post.
      *
      * @param id the ID of the post to delete
      * @return a ResponseEntity containing a CustomApiResponse with the status of the operation
      */
     @Operation(summary = "Delete Post", description = "Delete a post by its ID.")
     @ApiResponse(responseCode = "204", description = "Post deleted successfully.")
+    @ApiResponse(responseCode = "403", description = "User not authorized to delete the post")
     @ApiResponse(responseCode = "404", description = "Post not found.")
     @DeleteMapping("/{id}")
-    public ResponseEntity<CustomApiResponse<Void>> deletePost(@PathVariable Long id) {
-        postService.deletePost(id);
+    public ResponseEntity<CustomApiResponse<Void>> deletePost(
+            @PathVariable Long id,
+            HttpServletRequest request) {
+        User authenticatedUser = (User) request.getAttribute("authenticatedUser");
+        postService.deletePost(id,authenticatedUser.getId());
         return new ResponseEntity<>(new CustomApiResponse<>(
                 "Post deleted successfully.",
                 true,

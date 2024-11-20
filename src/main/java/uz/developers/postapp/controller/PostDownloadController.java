@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/post/files")
+@RequestMapping("/api/post/downloads")
 public class PostDownloadController {
 
 
@@ -34,7 +34,7 @@ public class PostDownloadController {
      * @return ResponseEntity with the operation status
      * @throws IOException if an error occurs during PDF generation
      */
-    @GetMapping("/download/pdf/{postId}")
+    @GetMapping("/pdf/{postId}")
     public ResponseEntity<CustomApiResponse<Void>> downloadPDF(
             @PathVariable Long postId,
             HttpServletResponse response) throws IOException, DocumentException {
@@ -52,7 +52,7 @@ public class PostDownloadController {
      * @param response to write the Excel file to
      * @return ResponseEntity with the operation status
      */
-    @GetMapping("/download/excel/{postId}")
+    @GetMapping("/excel/{postId}")
     public ResponseEntity<CustomApiResponse<Void>> downloadExcel(
             @PathVariable Long postId,
             HttpServletResponse response) throws IOException {
@@ -70,7 +70,7 @@ public class PostDownloadController {
      * @param response to write the CSV file to
      * @return ResponseEntity with the operation status
      */
-    @GetMapping("/download/csv/{postId}")
+    @GetMapping("/csv/{postId}")
     public ResponseEntity<CustomApiResponse<Void>> downloadCSV(
             @PathVariable Long postId,
             HttpServletResponse response) throws IOException {

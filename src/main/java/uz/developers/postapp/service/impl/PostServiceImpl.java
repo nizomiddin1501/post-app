@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 import uz.developers.postapp.entity.Post;
 import uz.developers.postapp.exceptions.PostException;
 import uz.developers.postapp.exceptions.ResourceNotFoundException;
+import uz.developers.postapp.exceptions.UserException;
 import uz.developers.postapp.payload.PostDto;
 import uz.developers.postapp.repository.CategoryRepository;
 import uz.developers.postapp.repository.PostRepository;
 import uz.developers.postapp.repository.UserRepository;
 import uz.developers.postapp.service.PostService;
 import java.util.Optional;
+
+import static org.apache.batik.svggen.font.table.Table.post;
 
 @Service
 @RequiredArgsConstructor
@@ -86,32 +89,39 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto updatePost(Long id, PostDto postDto) {
-        Post existingPost = postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-        Post postDetails = dtoToPost(postDto);
+    public PostDto updatePost(Long postId, PostDto postDto, Long userId) {
+        Post existingPost = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));
 
-        existingPost.setTitle(postDetails.getTitle());
-        existingPost.setContent(postDetails.getContent());
-        existingPost.setImage(postDetails.getImage());
-        existingPost.setDate(postDetails.getDate());
+        if (!existingPost.getUser().getId().equals(userId)) {
+            throw new UserException("You are not authorized to update this post");
+        }
+
+        existingPost.setTitle(postDto.getTitle());
+        existingPost.setContent(postDto.getContent());
+        existingPost.setImage(postDto.getImage());
+        existingPost.setDate(postDto.getDate());
 
         Post updatedPost = postRepository.save(existingPost);
         return postToDto(updatedPost);
     }
 
     @Override
-    public void deletePost(Long id) {
-        Post post = postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+    public void deletePost(Long postId, Long userId) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));
+
+        if (!post.getUser().getId().equals(userId)) {
+            throw new UserException("You are not authorized to delete this post");
+        }
         postRepository.delete(post);
     }
 
-    // DTO ---> Entity
+    // DTO to Entity
     private Post dtoToPost(PostDto postDto){
         return modelMapper.map(postDto, Post.class);
     }
-    // Entity ---> DTO
+    // Entity to DTO
     public PostDto postToDto(Post post){
         return modelMapper.map(post, PostDto.class);
     }
