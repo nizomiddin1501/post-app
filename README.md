@@ -1,4 +1,5 @@
-Post-app application. 
+Post-app application.
+Java, Spring boot, Postgresql.
 Post, Comment, Category and User entity larini uz ichiga oladi.
 Entity lar uchun barcha crud amallari bajarilgan.
 Barcha endpointlar swagger doc yordamida kursatilgan.
